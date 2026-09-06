@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaque Pensou 3D | Já que pensou, a gente imprime!</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            purple: '#8b2fc9',
+                            magenta: '#d926a9',
+                            cyan: '#00f2fe',
+                            dark: '#0f081d',
+                            card: '#1a102f',
+                            accent: '#a855f7'
+                        }
+                    },
+                    boxShadow: {
+                        'neon-purple': '0 0 25px -5px rgba(139, 47, 201, 0.5)',
+                        'neon-cyan': '0 0 25px -5px rgba(0, 242, 254, 0.4)',
+                        'neon-magenta': '0 0 25px -5px rgba(217, 38, 169, 0.4)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0b0616;
+            color: #f3f4f6;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(139, 47, 201, 0.22) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 242, 254, 0.18) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(217, 38, 169, 0.12) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .glass-card {
+            background: rgba(26, 16, 47, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #00f2fe 0%, #a855f7 50%, #d926a9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glow-button-magenta {
+            background: linear-gradient(135deg, #d926a9 0%, #8b2fc9 100%);
+            box-shadow: 0 4px 20px rgba(217, 38, 169, 0.4);
+            transition: all 0.3s ease;
+        }
+        .glow-button-magenta:hover {
+            box-shadow: 0 6px 28px rgba(217, 38, 169, 0.7);
+            transform: translateY(-2px);
+        }
+
+        .glow-button-green {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+            transition: all 0.3s ease;
+        }
+        .glow-button-green:hover {
+            box-shadow: 0 6px 28px rgba(16, 185, 129, 0.7);
+            transform: translateY(-2px);
+        }
+
+        .hero-banner {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-fuchsia-600 selection:text-white">
+
+    <div>
+        <!-- Top Announcement Bar -->
+        <div class="bg-gradient-to-r from-purple-900 via-fuchsia-800 to-indigo-900 text-white text-center py-2.5 px-4 text-xs sm:text-sm font-medium tracking-wide shadow-md">
+            ✨ <strong class="font-bold">Jaque Pensou 3D:</strong> Produtos de qualidade feitos em impressão 3D! Peças exclusivas com entrega rápida.
+        </div>
+
+        <!-- Header / Banner Hero Section -->
+        <header class="w-full max-w-5xl mx-auto p-3 sm:p-6">
+            <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-purple-500/40 group">
+                <img 
+                    src="banner.jpg" 
+                    alt="Banner Jaque Pensou 3D - Produtos de qualidade feitos em impressão 3D" 
+                    class="hero-banner transition-transform duration-700 ease-out group-hover:scale-[1.01]"
+                    onerror="this.onerror=null; this.src='https://placehold.co/1200x400/1a102f/ffffff?text=Jaque+Pensou+3D';"
+                />
+                <div class="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl sm:rounded-3xl pointer-events-none"></div>
+            </div>
+        </header>
+
+        <!-- Main Content Container -->
+        <main class="max-w-4xl mx-auto px-4 py-2 space-y-6 sm:space-y-10">
+
+            <!-- PIX Payment Section (NOW FIRST CARD) -->
+            <section class="glass-card rounded-2xl p-6 sm:p-8 relative border-2 border-fuchsia-500/40 shadow-neon-purple">
+                <div class="flex items-center justify-between border-b border-purple-500/30 pb-4 mb-5">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-xl">
+                            <i class="fa-brands fa-pix"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-lg sm:text-2xl font-bold text-white">Pagamento Rápido via PIX</h2>
+                            <p class="text-xs text-purple-300">Prático, seguro e instantâneo</p>
+                        </div>
+                    </div>
+                    <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 hidden sm:inline-block">
+                        PIX Copia e Cola
+                    </span>
+                </div>
+
+                <!-- Receiver Information -->
+                <div class="bg-purple-950/50 rounded-xl p-3.5 mb-4 border border-purple-800/40 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 text-xs sm:text-sm">
+                    <div class="flex items-center gap-2 text-gray-300">
+                        <i class="fa-solid fa-user-check text-fuchsia-400"></i>
+                        <span>Beneficiário:</span>
+                        <strong class="text-white font-semibold">Jaqueline Costa dos Santos</strong>
+                    </div>
+                    <div class="flex items-center gap-2 text-purple-300 text-xs">
+                        <i class="fa-solid fa-city"></i>
+                        <span>São Paulo / SP</span>
+                    </div>
+                </div>
+
+                <!-- PIX Code Box -->
+                <div class="space-y-3">
+                    <label for="pixCode" class="block text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                        Código PIX Copia e Cola:
+                    </label>
+                    
+                    <div class="relative">
+                        <textarea 
+                            id="pixCode" 
+                            readonly 
+                            rows="3" 
+                            class="w-full bg-slate-950/90 border border-purple-500/40 rounded-xl p-3.5 text-xs font-mono text-purple-200 focus:outline-none focus:ring-2 focus:ring-fuchsia-500 resize-none selection:bg-fuchsia-600"
+                        >00020126730014BR.GOV.BCB.PIX0114+55119538411680233Jaque Pensou agradece a confiança5204000053039865802BR5925Jaqueline Costa dos Santo6009SAO PAULO62140510iTUYFhiUq763044B6C</textarea>
+                    </div>
+
+                    <!-- Copy Button -->
+                    <button 
+                        id="copyPixBtn"
+                        onclick="copyPixCode()" 
+                        class="w-full glow-button-magenta text-white font-bold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 text-sm sm:text-base transition-all active:scale-[0.98]"
+                    >
+                        <i id="copyBtnIcon" class="fa-regular fa-copy"></i>
+                        <span id="copyBtnText">Copiar Chave PIX</span>
+                    </button>
+                    
+                    <!-- Feedback Toast Alert -->
+                    <div id="copySuccessAlert" class="hidden opacity-0 transition-all duration-300 bg-emerald-500/20 border border-emerald-500/50 rounded-xl p-3 text-center text-emerald-300 text-xs sm:text-sm font-medium flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+                        <span>Código PIX copiado com sucesso! Abra o app do seu banco e cole na opção PIX Copia e Cola.</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Store Presentation Section (NOW SECOND CARD) -->
+            <section class="glass-card rounded-2xl p-6 sm:p-8 text-center relative overflow-hidden">
+                <div class="absolute -top-10 -right-10 w-32 h-32 bg-fuchsia-600/20 rounded-full blur-2xl"></div>
+                <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-cyan-600/20 rounded-full blur-2xl"></div>
+                
+                <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight mb-2">
+                    <span class="gradient-text">Bem-vindo à JaquePensou 3D!</span>
+                </h1>
+
+                <p class="text-fuchsia-300 font-semibold text-sm sm:text-lg mb-4 tracking-wide">
+                    "Já que pensou, a gente imprime! Ideias que ganham vida."
+                </p>
+                
+                <p class="text-gray-300 text-xs sm:text-base max-w-3xl mx-auto leading-relaxed mb-6 font-light">
+                    Somos movidos pela paixão de transformar projetos, ideias, decorações, colecionáveis e utilidades em realidade tangível. Utilizando tecnologia avançada de impressão 3D, garantimos alta precisão, materiais resistentes e seguros, e um acabamento impecável em cada detalhe de cada peça.
+                </p>
+
+                <!-- Qualities Badge Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-6">
+                    <div class="glass-card p-3.5 rounded-xl border border-purple-500/30 hover:border-emerald-400/60 transition-colors flex flex-col items-center text-center">
+                        <div class="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg mb-2">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <span class="font-bold text-xs sm:text-sm text-gray-100">Alta Qualidade</span>
+                        <span class="text-[11px] text-gray-400 mt-0.5">Precisão garantida</span>
+                    </div>
+
+                    <div class="glass-card p-3.5 rounded-xl border border-purple-500/30 hover:border-cyan-400/60 transition-colors flex flex-col items-center text-center">
+                        <div class="w-10 h-10 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-lg mb-2">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <span class="font-bold text-xs sm:text-sm text-gray-100">Material Seguro</span>
+                        <span class="text-[11px] text-gray-400 mt-0.5">Resistente e durável</span>
+                    </div>
+
+                    <div class="glass-card p-3.5 rounded-xl border border-purple-500/30 hover:border-amber-400/60 transition-colors flex flex-col items-center text-center">
+                        <div class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-lg mb-2">
+                            <i class="fa-solid fa-gears"></i>
+                        </div>
+                        <span class="font-bold text-xs sm:text-sm text-gray-100">Acabamento Top</span>
+                        <span class="text-[11px] text-gray-400 mt-0.5">Sem imperfeições</span>
+                    </div>
+
+                    <div class="glass-card p-3.5 rounded-xl border border-purple-500/30 hover:border-fuchsia-400/60 transition-colors flex flex-col items-center text-center">
+                        <div class="w-10 h-10 rounded-full bg-fuchsia-500/20 text-fuchsia-400 flex items-center justify-center text-lg mb-2">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <span class="font-bold text-xs sm:text-sm text-gray-100">Peças Únicas</span>
+                        <span class="text-[11px] text-gray-400 mt-0.5">Feitas para encantar</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact & Social Media Section (THIRD CARD) -->
+            <section class="glass-card rounded-2xl p-6 sm:p-8 text-center space-y-6">
+                <div>
+                    <h2 class="text-xl sm:text-2xl font-bold text-white mb-1">Fale Conosco & Envie suas Ideias</h2>
+                    <p class="text-gray-300 text-xs sm:text-sm">Faça um orçamento ou tire suas dúvidas através dos nossos canais:</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- WhatsApp Button -->
+                    <a 
+                        href="https://wa.me/5511953841168?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Jaque%20Pensou%203D%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento!" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="glow-button-green text-white font-bold py-4 px-6 rounded-xl flex items-center justify-center gap-3 text-base group"
+                    >
+                        <i class="fa-brands fa-whatsapp text-2xl group-hover:scale-110 transition-transform"></i>
+                        <div class="text-left">
+                            <div class="text-[11px] font-normal text-emerald-100">WhatsApp Oficial</div>
+                            <div class="text-base font-extrabold tracking-wide">(11) 95384-1168</div>
+                        </div>
+                    </a>
+
+                    <!-- Instagram Button -->
+                    <a 
+                        href="https://www.instagram.com/jaquepensou3d/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:from-purple-500 hover:via-pink-500 hover:to-amber-400 text-white font-bold py-4 px-6 rounded-xl flex items-center justify-center gap-3 text-base shadow-lg hover:shadow-pink-500/30 transition-all hover:-translate-y-0.5 active:scale-[0.98] group"
+                    >
+                        <i class="fa-brands fa-instagram text-2xl group-hover:scale-110 transition-transform"></i>
+                        <div class="text-left">
+                            <div class="text-[11px] font-normal text-pink-100">Instagram</div>
+                            <div class="text-base font-extrabold tracking-wide">@jaquepensou3D</div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-10 py-6 border-t border-purple-900/40 text-center text-xs text-purple-400/80 px-4">
+        <p class="font-medium">© <span id="year"></span> Jaque Pensou 3D. Todos os direitos reservados.</p>
+        <p class="mt-1 text-fuchsia-300 font-semibold">Jaque Pensou agradece a confiança!</p>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Set dynamic current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Copy PIX Code function with fallbacks
+        function copyPixCode() {
+            const pixTextarea = document.getElementById('pixCode');
+            const pixText = pixTextarea.value;
+            const btnText = document.getElementById('copyBtnText');
+            const btnIcon = document.getElementById('copyBtnIcon');
+            const alertBox = document.getElementById('copySuccessAlert');
+            const btn = document.getElementById('copyPixBtn');
+
+            // Universal text selection
+            pixTextarea.select();
+            pixTextarea.setSelectionRange(0, 99999);
+
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(pixText).then(() => {
+                    showCopyFeedback();
+                }).catch(() => {
+                    fallbackCopy();
+                });
+            } else {
+                fallbackCopy();
+            }
+
+            function fallbackCopy() {
+                try {
+                    const successful = document.execCommand('copy');
+                    if (successful) {
+                        showCopyFeedback();
+                    } else {
+                        alert('Por favor, selecione e copie o código PIX manualmente.');
+                    }
+                } catch (err) {
+                    alert('Por favor, selecione e copie o código PIX manualmente.');
+                }
+            }
+
+            function showCopyFeedback() {
+                // Button Visual State Shift
+                btn.classList.remove('glow-button-magenta');
+                btn.classList.add('bg-emerald-600', 'text-white');
+                btnText.textContent = 'Código PIX copiado com sucesso!';
+                btnIcon.className = 'fa-solid fa-check';
+
+                // Reveal Toast Alert
+                alertBox.classList.remove('hidden');
+                setTimeout(() => {
+                    alertBox.classList.remove('opacity-0');
+                }, 10);
+
+                // Reset button state back after 3.5 seconds
+                setTimeout(() => {
+                    btn.classList.remove('bg-emerald-600');
+                    btn.classList.add('glow-button-magenta');
+                    btnText.textContent = 'Copiar Chave PIX';
+                    btnIcon.className = 'fa-regular fa-copy';
+
+                    alertBox.classList.add('opacity-0');
+                    setTimeout(() => {
+                        alertBox.classList.add('hidden');
+                    }, 300);
+                }, 3500);
+            }
+        }
+    </script>
+</body>
+</html>
